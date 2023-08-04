@@ -1,0 +1,751 @@
+/* style CSS */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a { text-decoration: none; }
+ul, li {
+    list-style-type: none;
+}
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* main-header */
+#sticky .logo {
+    width: 61px; height: 56px;
+    position: fixed; 
+    /* position fixed - 스크롤 내려도 위치 고정 위해 */
+    left: 50px;
+    top: 50px;
+    /* outline: 1px solid red; */
+    z-index: 1001;
+}
+
+/* 메뉴 영역 */
+.menu {
+    position: fixed;
+    top: 50px; 
+    right: 50px; 
+    /* margin-right: 50px; */
+    width: 46px; height: 46px;
+    /* outline: 1px solid blue; */
+    z-index: 1001;
+}
+.menu-link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.menu-icon {
+    position: absolute;
+    width: 25px; height: 20px;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 1px;
+    /* outline: 1px solid red; */
+}
+
+.menu-line {
+    background-color: black;
+    height: 3px;
+    width: 100%;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.25s ease-in-out;
+}
+.menu-line-2 {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.menu-line-3 {
+    bottom: 0;
+}
+
+.menu.open .menu-line-1 {
+    transform: translateY(10px) translateY(-50%) rotate(-45deg);
+    background-color: yellow;
+}
+
+/* open 되었을때 X로 바꿔 줄려는 코드(위에꺼) */
+.menu.open .menu-line-2 {
+    opacity: 0;
+}
+.menu.open .menu-line-3 {
+    transform: translateY(-10px) translateY(50%) rotate(45deg);
+    background-color: yellow;
+}
+
+/* 오버레이 메뉴로 오픈시키기 */
+.menu-overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+    color: yellow;
+    height: 100vh; width: 100%;
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    text-align: center;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 1001;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.menu-overlay.open {
+    opacity: 1;
+    visibility: visible ;
+}
+
+/* 메뉴 펼쳐졌을 때 메뉴 리스트 들 스타일 */
+.menu-overlay nav ul li a {
+    font-family: 'Yeseva One', cursive;
+    font-size: 80px;
+    color: #ffd500;
+    text-align: left;
+}
+.menu-overlay nav ul li {
+    padding: 10px 0;
+}
+
+.menu-overlay nav ul li a span {
+    opacity: 0;
+}
+
+.menu-overlay nav ul li a:hover span {
+    opacity: 1;
+    transition: 0.6s;
+}
+
+/* bottom menu */
+.sticky_wrap .sns-menu {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1001;
+    /* outline: 1px solid red; */
+}
+
+.sns-menu .bottom ul {
+    overflow: hidden;
+}
+.sns-menu .bottom ul li {
+    float: left;
+    margin-left: 40px;
+}
+.sns-menu .bottom ul li:first-child {
+    margin-left: 0px;
+}
+.sns-menu .bottom ul li a {
+    font-size: 12px;
+    color: black;
+    text-transform: uppercase;
+}
+/* front page */
+#front {
+    min-width: 1920px;
+    width: 100%; 
+    height: 100vh;
+    position: relative;
+    /* margin: 0 auto; */
+    /* outline: 1px solid red; */
+}
+.textarea-wrap {
+    /* background-color: burlywood; */
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+.textarea-wrap .textarea {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    min-width: 1920px;
+}
+#front h1 {
+    display: inline-block;
+    font-size: 100px;
+}
+
+#front .second {
+    font-family: 'Yeseva One', cursive;
+    /* background-color: red; */
+    color: #0066b3;
+}
+#front .third {
+    font-family: 'Yeseva One', cursive;
+    /* background-color: red; */
+    color: #ffd500;
+}
+/* front background */
+.bg-wrap {
+    width: 100%;
+    /* width: 1920px; */
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    /* display flex */
+}
+
+.bg-wrap .bg-imgs { 
+    /* max-width: 100%; */
+    width: 1920px;
+    height: 1080px;
+    /* outline: 3px solid red; */
+    margin: 0 auto;
+    position: relative;
+    /* margin-top: 960px; */
+}
+
+.bg-wrap > .bg-imgs > img:nth-child(1) {
+    position: absolute;
+    top: 132px; left: 492px;
+    /* outline: 1px solid red; */
+    animation: moving 1.4s infinite;
+}
+
+.bg-wrap > .bg-imgs > img:nth-child(2) {
+    position: absolute;
+    top: 267px; right: 155px;
+} 
+.bg-wrap > .bg-imgs > img:nth-child(3) {
+    position: absolute;
+    top: 465px; left: 131px;
+    /* outline: 1px solid green; */
+} 
+.bg-wrap > .bg-imgs > img:nth-child(4) {
+    position: absolute;
+    top: 322px; left: 345px;
+    /* outline: 1px solid blue; */
+} 
+.bg-wrap > .bg-imgs > img:nth-child(5) {
+    position: absolute;
+    bottom: 100px; right: 455px;
+    animation: moving2 1.9s infinite;
+} 
+.bg-wrap > .bg-imgs > img:nth-child(6) {
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 396px; right: 187px;
+} 
+.bg-wrap > .bg-imgs > img:nth-child(7) {
+    position: absolute;
+    left: 563px; bottom: 220px;
+ 
+} 
+.bg-wrap > .bg-imgs > img:nth-child(8) {
+    position: absolute;
+    left: 967px; top: 240px;
+    
+} 
+.bg-wrap > .bg-imgs > img:nth-child(9) {
+    position: absolute;
+    left: 237px; bottom: 166px;
+    animation: rotate 1.7s infinite;
+} 
+.bg-wrap > .bg-imgs > img:nth-child(10) {
+    position: absolute;
+    left: 1020px; bottom: 172px;
+    animation: down 0.8s infinite;
+} 
+.bg-wrap > .bg-imgs > img:nth-child(11) {
+    position: absolute;
+    right: 430px; top: 136px;
+    animation-name: rotate;
+    animation-duration: 1.0s;
+    animation-iteration-count: infinite;
+} 
+
+@keyframes rotate {
+    100% { transform: rotate(360deg);}
+}
+
+@keyframes moving {
+    0% { padding-left: 0; }
+    50% { padding-left: 20px; }
+    100% { padding-left: 0; }
+}
+@keyframes moving2 {
+    0% { padding-right: 0; }
+    50% { padding-right: 25px; }
+    100% { padding-right: 0; }
+}
+@keyframes down {
+    0% { padding-bottom: 0px;  }
+    50% { padding-bottom: 20px;  }
+    100% { padding-bottom: 0px;  }
+}
+
+/* section 공통 : title위치, 컬러, 크기 */
+section h2 {
+    font-size: 100px;
+    font-family: 'Yeseva One', cursive;
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+    /* padding-bottom: 166px;
+    padding-right: 17px; */
+    /* display: inline; */
+}
+/* about section */
+#about {
+    min-width: 1920px;
+    width: 100%;
+    /* min-width: 1200px; */
+    height: 100vh;
+    background-color: #ffd500;
+    color: #0066b3;
+    /* overflow: hidden; */
+    position: relative;
+}
+.title_wrap {
+    max-width: 1920px;
+    height: 100vh;
+    /* outline: 1px solid red; */
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin:  0 auto;
+}
+
+.title_wrap .title {
+    position: absolute;
+    top: 167px; left: 18px;
+}
+
+
+.cont_wrap {
+    /* min-width: 960px; */
+    width: 1200px;
+    height: 100vh;
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 0; top: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    /* outline: 1px solid black; */
+}
+
+.cont_wrap .cont {
+    /* max-width: 1920px; */
+    width: 1200px;
+    margin: 0 auto;
+    /* outline: 1px solid red; */
+    text-align: center;
+    overflow: hidden;
+}
+
+.cont_wrap .cont .personal,
+.cont_wrap .cont .ex,
+.cont_wrap .cont .award-skill {
+    float: left;
+    width: 386.6px; 
+    height: 747px;
+    /* height: 100%; */
+    /* outline: 1px solid green; */
+}
+.cont_wrap .cont .ex {
+    margin: 0 20px;
+}
+
+/* persnal part */
+.personal {
+    padding-top: 260px;
+    border-right: 1px solid #0066b3;
+    border-left: 1px solid #0066b3;
+}
+.personal .name {
+    font-family: 'Yeseva One', cursive;
+    font-size: 24px;
+    text-align: left;
+    padding-left: 20px;
+}
+.personal .desc {
+    /* padding: 0 38px; */
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 55px;
+    /* outline: 1px solid green; */
+}
+.personal .desc > p:nth-child(2) {
+    margin-top: 15px;
+}
+
+/* ex part  */
+.ex {
+    text-align: left;
+    /* padding: 0, 20px; */
+    border-left: 1px solid #0066b3;
+    border-right: 1px solid #0066b3;
+}
+.ex h3 {
+    font-family: 'Yeseva One', cursive;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+.ex .date {
+    font-size: 14px;
+    font-weight: 300;
+}
+.ex .edu-desc {
+    font-size: 18px;
+    font-weight: 400;
+}
+.ex .edu > div {
+    margin-bottom: 15px;
+}
+.ex .edu .grad-3 {
+    margin-bottom: 37px;
+}
+.ex .ex-line {
+    width: 386.6px;
+    height: 1px;
+    background-color: #0066b3;
+}
+.ex .edu {
+    padding: 0 20px;
+}
+
+/* work ex part */
+.ex .work {
+    padding: 0 20px;
+}
+.ex .work h3 {
+    margin-top: 32px;
+}
+
+.ex .work span {
+    font-weight: 500;
+}
+.ex .work .work-desc {
+    font-size: 18px;
+    font-weight: 400;
+}
+.ex .work > div {
+    margin-bottom: 15px;
+}
+.ex .work .work-3 {
+    margin-bottom: 37px;
+}
+
+/* etc ex part */
+.ex .etc {
+    padding: 0 20px;
+}
+.ex .etc h3 {
+    margin-top: 32px;
+}
+
+/* award skill part */
+.award-skill {
+    border-left: 1px solid #0066b3;
+    border-right: 1px solid #0066b3;
+}
+.award {
+  
+    text-align: left;
+    padding: 0 20px;
+
+}
+.award h3 {
+    font-family: 'Yeseva One', cursive;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+.award .date {
+    font-size: 14px;
+    font-weight: 300;
+}
+.award .award-desc {
+    font-size: 18px;
+}
+.award .award-1 {
+    margin-bottom: 230px;
+}
+
+.award-line {
+    width: 386.6px;
+    height: 1px;
+    background-color: #0066b3;
+    margin-bottom: 37px;
+}
+
+/* skill part */
+ .skills {
+     text-align: left;
+     padding: 0 20px;
+ }
+
+ .skills h3 {
+     font-family: 'Yeseva One', cursive;
+     font-size: 24px;
+     margin-bottom: 40px;
+ }
+.skills-cont .ai {
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+.skills-cont .ai img, 
+.skills-cont .ai .graph {
+    float: left;
+}
+.skills-cont .ai .graph {
+    margin-left: 42px;
+    margin-top: 12px;
+}
+.skills-cont .ps {
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+.skills-cont .ps img, 
+.skills-cont .ps .graph {
+    float: left;
+}
+.skills-cont .ps .graph {
+    margin-left: 42px;
+    margin-top: 12px;
+}
+
+.skills-cont .xd {
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+.skills-cont .xd img, 
+.skills-cont .xd .graph {
+    float: left;
+}
+.skills-cont .xd .graph {
+    margin-left: 42px;
+    margin-top: 12px;
+}
+
+.skills-cont .pr {
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+.skills-cont .pr img, 
+.skills-cont .pr .graph {
+    float: left;
+}
+.skills-cont .pr .graph {
+    margin-left: 42px;
+    margin-top: 12px;
+}
+
+.skills-cont .publi {
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+ .skills .skills-cont .graph {
+     width: 260px;
+     height: 18px;
+     border: 1px solid #0066b3;
+ }
+ .skills .ai .fill {
+     width: 220px;
+     height: 17px;
+     background-color: #0066b3;
+     animation: fill-action1 1.2s linear;
+     animation-delay: 0.8s;
+ }
+ .skills .ps .fill {
+     width: 210px;
+     height: 17px;
+     background-color: #0066b3;
+     animation: fill-action2 1.2s linear;
+     animation-delay: 0.8s;
+ }
+ .skills .xd .fill {
+     width: 225px;
+     height: 17px;
+     background-color: #0066b3;
+     animation: fill-action3 1.2s linear;
+     animation-delay: 0.8s;
+ }
+ .skills .pr .fill {
+     width: 160px;
+     height: 17px;
+     background-color: #0066b3;
+     animation: fill-action4 1.2s linear;
+     animation-delay: 0.8s;
+ }
+
+
+
+
+ @keyframes fill-action1 {
+     0% { width: 0px; }
+     100% { width: 220px; }
+ }
+ @keyframes fill-action2 {
+     0% { width: 0px; }
+     100% { width: 210px; }
+ }
+ @keyframes fill-action3 {
+     0% { width: 0px; }
+     100% { width: 225px; }
+ }
+ @keyframes fill-action4 {
+     0% { width: 0px; }
+     100% { width: 160px; }
+ }
+
+ /* portfolio page */
+ #portfolio {
+    width: 100%;
+    min-width: 1920px;
+    height: 100vh;
+    background-color: #0066b3;
+    color: #ffd500;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+#portfolio .p_title_wrap {
+    width: 1920px;
+    height: 100vh;
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    margin: 0 auto;
+    /* outline: 1px solid red; */
+}
+
+#portfolio .title {
+    /* outline: 1px solid red; */
+    position: absolute;
+    top: 161px; left: 18px;
+}
+
+#portfolio .slider_wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 1920px; height: 100vh;
+    /* outline: 2px solid rosybrown; */
+    display: flex;
+    align-items: center;
+    transition: left 0.5s ease-out;
+}
+
+#portfolio .slider {
+    position: absolute;
+    right: 0;
+    /* outline: 1px solid red; */
+    width: 1515px; height: 745px;
+    margin-right: 50px;
+    overflow: hidden;
+}
+
+.slider > ul {
+    /* width: 3715px; */
+    /* ul width 값 자바로 처리 */
+    overflow: hidden;
+    /* outline: 1px solid springgreen; */
+    position: absolute;
+    left: 0; top: 0;
+    height: 746px;
+    transition: left 0.5s ease-out;
+} 
+.slider > ul > li {
+    /* outline: 1px solid lightcoral; */
+    width: 1200px; height: 745px;
+    float: left;
+    margin-left: 57px;
+}
+
+
+.slider > ul > li:first-child {
+    margin-left: 0;
+}
+
+.slider .slide-wrap .thumb {
+    width: 1200px;
+    height: 620px;
+    overflow: hidden;
+    /* outline: 1px solid red; */
+    text-align: center;
+    position: relative;
+    /* position: relative; */
+    /* cursor: pointer; */
+}
+
+.slider .slide-wrap .thumb img:first-child {
+    width: 100%;
+    /* opacity: 0.2; */
+    position: absolute;
+    top: 0; left: 0; 
+}
+.slider .slide-wrap .thumb .hover {
+    position: absolute;
+    top: 0; left: 0 ;
+    opacity: 0.8;
+    display: none;
+}
+
+
+.slider .line1 {
+    width: 1200px;
+    height: 1px;
+    background-color: #ffd500;
+    margin-top: 20px;
+}
+.slider .line2 {
+    width: 1200px;
+    height: 1px;
+    background-color: #ffd500;
+    margin-top: 10px;
+}
+.slider .port_title {
+    overflow: hidden;
+    margin-top: 18px;
+}
+.slider .port_title .num {
+    float: left;
+    font-family: 'Yeseva One', cursive;
+    font-size: 50px;
+    color: black;
+}
+.slider .port_title .slide-title {
+    float: right;
+    font-size: 20px;
+    line-height: 57px;
+}
+.slider .slide4 .thumb {
+    background-color: #ffd500;
+}
+
+
+/* pager */
+.buttons {
+    position: absolute;
+    left: 0; bottom: -3px;
+    /* z-index: 1000; */
+
+    /* overflow: hidden; */
+}
+
+.buttons .left,
+.buttons .deco-dot,
+.buttons .right {
+    float: left;
+    /* outline: 1px solid red; */
+}
+.buttons .deco-dot {
+    margin: 0 10px;
+}
